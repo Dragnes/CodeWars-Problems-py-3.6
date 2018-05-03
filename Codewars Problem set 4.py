@@ -164,34 +164,31 @@ def alphabet_position(text):      # code above written in a different way
 print(alphabet_position(text)) 
 
 
+# 59) Build Tower by the following given argument: number of floors (integer and always greater than 0).
+'''
+exmple: a tower of 3 floors looks like below
+[
+  '  *  ', 
+  ' *** ', 
+  '*****'
+]
+'''
 
+n = 3
+def tower_builder(n_floors):
+    floors = []   # initializing floors to be an empty list
+    for i in range(n_floors):   # range(n_floors) = range(3) = [0,1,2]. for i in [0,1,2]
+        n_floors -= 1   # decrement n_floors by 1 
+        floors.append(' ' * n_floors + '*' * (i * 2 + 1) + ' ' * n_floors)  # concatenat strings by multiples of i by appending to an initialized empty list, floors
+    return(floors)   # return the list floors
+print(tower_builder(n))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+n = 3
+def tower_builder(n_floors):
+    floors = []   # initializing floors to be an empty list
+    for i in range(1, n_floors + 1):   # range(1, n_floors + 1) = range(1, 3+1) = range(1, 4) = [1,2,3]. for i in [1,2,3]: i1 = 1, i2 = 2, i3 = 3
+        stars = '*' * (i * 2 - 1)   # initializing stars the following way: (i1 * 2 - 1) = (1 * 2 - 1) = 1 multiple of '*' for i1 = '*', 3 multiples of '*' for i2 = '***', 5 multiples of '*' for i3 = '*****'
+        spaces = ' ' * (n_floors - i)   # initializing spaces the following way: (n_floors - i1) = (3 - 1) = 2 mltiples of ' ' = '  ', 1 multiples of ' ' = ' ', 0 multiples of ' ' = '' 
+        floors.append(spaces + stars + spaces)   # concateneat strings (spaces + stars + spaces) by appending to an initialized empty list, floors
+    return(floors)   # return the list floors
+print(tower_builder(n))
