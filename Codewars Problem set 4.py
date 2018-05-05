@@ -211,3 +211,49 @@ def pyramids(floors):
         for k in range(0, 2*i+1):
             print('0', end = '')
 print(pyramids(floors))
+
+
+# 61) Given an array of numbers, sort ascending order numbers but even numbers must be on their places.
+
+n = [5, 3, 2, 8, 1, 4]
+def sort_array(source_array):
+    odds = []   # initializing odds to be an empty list
+    answer = []   # initializing answer to be an empty list
+    for i in source_array:   # for i in [5, 3, 2, 8, 1, 4]
+        if i % 2 == 1:   # if i is odd, then
+            odds.append(i)   # append odd i to the initialized list, odds
+            answer.append('X')   # append 'X' to to the initialized list, answer
+        else:
+            answer.append(i)   # if i is not odd, append i to the intialized list, answer
+    odds.sort()   # sort the list odds
+    for i in odds:   # for i in list odds
+        x = answer.index('X')   # initialize x to be the index location in the list answer of 'X'
+        answer[x] = i   # replace the index location of 'X' by i
+    return(answer)   # return the list answer
+print(sort_array(n))
+
+n = [5, 3, 2, 8, 1, 4]
+def sort_array(source_array):
+    odds = []   # initializing odds to be an empty list
+    for i in range(len(source_array)):   # range(len(source_array)) = range(len([5, 3, 2, 8, 1, 4])) = range(6) = [0,1,2,3,4,5]. so for i in [0,1,2,3,4,5], i1 = 0, i2 = 1, i3 = 2, ...
+        if source_array[i] % 2 > 0:   # if (source_array[i1] = source_array[0] = 5) is odd
+            odds.append(source_array[i])   # append source_array[i1] to initialized list odds
+            source_array[i] = 'X'   # replace the index of i which is odd in source_array by 'X'
+    odds.sort()   # sort the list odds
+    for i in range(len(odds)):   # range(len([1,2,5])) = range(3) = [0,1,2], so for i in range [0,1,2]
+        source_array[source_array.index('X')] = odds [i]   # source_array.index('X') = 0, so source_array[0] = odds[i] (odds[i1] = 1, odds[i2] = 3, odds = 5)
+    return(source_array)   # return our source_array list
+print(sort_array(n))
+
+n = [5, 3, 2, 8, 1, 4]
+def sort_array(source_array):
+    if source_array == []:   # if input is an empty array
+        return[]   # return an empty list
+    for i in range(len(source_array)):   # range(len(source_array)) = range(len([5, 3, 2, 8, 1, 4])) = range(6) = [0,1,2,3,4,5], for i in [0,1,2,3,4,5]; i1 = 0, i2 = 1, i3 = 2...
+        for j in range(i, len(source_array)):   # for i1: range(i1 index, len(source_array)) = range(0, 6) = [0,1,2,3,4,5], so for j in [0,1,2,3,4,5]. for i2: range(i2 index, len(source_array)) = range(1, 6) = [1,2,3,4,5], so for j in [1,2,3,4,5]...
+            if (source_array[i] % 2 == 1 and source_array[j] % 2 == 1) and (source_array[j] < source_array[i]):
+                ints = source_array[i]   # initialize ints to be source_array[i]
+                source_array[i] = source_array[j]   ## initializ srouce_array[i] to be source_array[j]
+                source_array[j] = ints   # now initialize source_array[j] to be ints
+    return(source_array)   # return the source_array list
+print(sort_array(n))
