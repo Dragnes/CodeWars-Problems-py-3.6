@@ -192,3 +192,22 @@ def tower_builder(n_floors):
         floors.append(spaces + stars + spaces)   # concateneat strings (spaces + stars + spaces) by appending to an initialized empty list, floors
     return(floors)   # return the list floors
 print(tower_builder(n))
+
+
+# 60) Write a function that creats a pyramid with levels given as an input using nested for loop.
+'''
+example of nested for loop
+for i in range(3):
+    print('a')
+    for j in range(3):
+        print('b')
+'''
+
+floors = 4
+def pyramids(floors):
+    for i in range(floors):
+        for j in range(floors - i):
+            print(' ', end = '')
+        for k in range(0, 2*i+1):
+            print('0', end = '')
+print(pyramids(floors))
