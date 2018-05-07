@@ -280,3 +280,50 @@ def dirReduc(arr):
             result.append(i)   # otherwise append i to result
     return(result)   # return the list result
 print(dirReduc(a))
+
+
+# 63) Given a list of integers and a single sum value, return the first two values (parse from the left please) in order of appearance that add up to form the sum.
+
+'''
+Method 1: search in dict by taking difference
+'''
+integers = [1, -2, 3, 0, -6, 1]
+sum_value = -6
+def sum_pairs(ints, s):
+    dictionary = {}   # initialize an empty dictionary
+    for i in range(len(ints)):   # range(len(ints)) = range(len([1, -2, 3, 0, -6, 1])) = range(6) = [0,1,2,3,4,5], so for i in [0,1,2,3,4,5]
+      result = s - ints[i]   # initializing result to be sum_value - ints[i]
+      if result in dictionary:   # if result in dictionary, then
+          return [result, ints[i]]   # return a list of result, ints[i]
+      dictionary[ints[i]] = None   # initialize None as value for i'th key in dictionary
+print(sum_pairs(integers, sum_value))
+
+'''
+Method 2: search in set by taking difference
+'''
+integers = [1, -2, 3, 0, -6, 1]
+sum_value = -6
+def sum_pairs(ints, s):
+    sets = set()   # initializing sets to be an empty set()
+    for i in ints:   # for i in [1, -2, 3, 0, -6, 1]
+        if s - i in sets:   # if difference of s - i in sets, then
+            return[s - i, i]   # return a list of s-i, i
+        else:
+            sets.add(i)   # otherwise insert(add) i to the initialized set
+print(sum_pairs(integers, sum_value))
+
+'''
+Method 3: search in list by taking difference
+'''
+integers = [1, -2, 3, 0, -6, 1]
+sum_value = -6
+def sum_pairs(ints, s):
+    arr = []   # initializing arr to be empty set
+    for i in range(len(ints)):   # range(len(ints)) = range(len([1, -2, 3, 0, -6, 1])) = range(6) = [0,1,2,3,4,5], for i in [0,1,2,3,4,5]
+        result = s - ints[i]   # initialize result to be differnece of s(=-6) - ints[i]
+        if result in arr:   # if result in arr
+            return[result, ints[i]]   # return a list with result and int[i]
+        else:
+            arr.append(ints[i])   # otherwise, append int[i] to arr
+print(sum_pairs(integers, sum_value))
+
