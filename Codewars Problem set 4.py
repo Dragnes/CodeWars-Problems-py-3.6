@@ -257,3 +257,26 @@ def sort_array(source_array):
                 source_array[j] = ints   # now initialize source_array[j] to be ints
     return(source_array)   # return the source_array list
 print(sort_array(n))
+
+
+# 62) Given directions to go from one point to another. The directions were "NORTH", "SOUTH", "WEST", "EAST". Clearly "NORTH" and "SOUTH" are opposite, "WEST" and "EAST" too.
+#     Going to one direction and coming back the opposite direction is a needless effort.
+#     ex: ["NORTH", "WEST", "SOUTH", "EAST", "WEST", "NORTH", "WEST", "SOUTH"] ---> ["NORTH", "WEST", 'WEST', 'SOUTH']
+#     ex: ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"] ---> ["WEST"]
+          
+a = ["NORTH", "WEST", "SOUTH", "EAST", "WEST", "NORTH", "WEST", "SOUTH"]
+def dirReduc(arr):
+    result = []   # initializing result to be an empty list
+    pairs = {
+        "NORTH": "SOUTH",
+        "SOUTH": "NORTH",
+        "EAST": "WEST",
+        "WEST": "EAST"
+      }   # initializing pairs to be the dictionary of keys and values
+    for i in arr:   # for i in ["NORTH", "WEST", "SOUTH", "EAST", "WEST", "NORTH", "WEST", "SOUTH"]
+        if result and result[-1] == pairs[i]:   # if result(which is empty list) and result[-1](last item in result) is in pairs
+            result.pop()   # pop i out of result
+        else:
+            result.append(i)   # otherwise append i to result
+    return(result)   # return the list result
+print(dirReduc(a))
