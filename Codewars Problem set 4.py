@@ -327,3 +327,34 @@ def sum_pairs(ints, s):
             arr.append(ints[i])   # otherwise, append int[i] to arr
 print(sum_pairs(integers, sum_value))
 
+
+# 64) The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers.
+
+array = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+def maxSequence(arr):
+    max = 0   # initializing max to be zero
+    curr = 0   # initializing curr to be zero
+    for i in arr:   # for i in [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+        if curr > 0:     # if curr > 0, then
+            curr += i   # increment curr by i
+            if curr < 0:   # if curr < 0, then
+                curr = 0   # set curr to be zero
+            elif curr > max:   # if curr > max, then
+                max = curr   # set max to be curr
+        elif i > 0:   # if i > 0, then
+            curr += i   # increment curr by i
+    return (max)   # return max
+print(maxSequence(array))
+
+array = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+def maxSequence(arr):
+    max = 0   # initializing max to be zero
+    curr = 0   # initializing curr to be zero
+    for i in arr:   # for i in [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+        curr += i   # # increment curr by i
+        if curr < 0:   # if curr < 0, then
+            curr = 0   # set curr to be zero
+        elif curr > max:   # if curr > max, then
+            max = curr   # set max to be curr
+    return(max)   # return max
+print(maxSequence(array))
