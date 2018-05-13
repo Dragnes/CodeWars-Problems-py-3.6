@@ -358,3 +358,41 @@ def maxSequence(arr):
             max = curr   # set max to be curr
     return(max)   # return max
 print(maxSequence(array))
+
+
+# 65) Write a function called that takes a string of parentheses and determines if the order of the parentheses is valid. The function should return true if the string is valid, and false if it's invalid
+#     ex: "()"              =>  true
+#     ex: ")(()))"          =>  false
+#     ex: "("               =>  false
+#     ex: "(())((()())())"  =>  true
+
+string = "(())((()()()))"
+def valid_parentheses(string):
+    count = 0   
+    for i in string:
+        if i == "(":
+            count += 1
+        if i == ")":
+            count -= 1
+        if count < 0:
+            return False
+    return count == 0
+print(valid_parentheses(string))
+
+string = "(())((()()()))"
+def valid_parentheses(string):
+    count = 0   # initializing count to be zero
+    for i in string:   # for i in "(())((()()()))"
+        if i == '(':   # if i == '(', then
+            count += 1   # increment count by 1
+        elif i == ')':   # if i == ')', then
+            count -= 1   # decrement count by 1
+        else:
+            pass   # otherwise pass
+        if count < 0:   # if count is less than 0, then
+            return(False)   # return False
+    if count > 0:   # if count is greater than 0, then
+        return(False)   # return False
+    else:
+        return(True)   # otherwise return True
+print(valid_parentheses(string))
