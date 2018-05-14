@@ -77,3 +77,29 @@ def whoIsNext(names, r):
         r = (r - len(names) + 1) >> 1   # r - len(["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"]) + 1 = 52 - 5 + 1 = 48. set r = 48 shifted right by 1 in binary
     return(names[r - 1])   # return index of names[r-1]
 print(whoIsNext(names, r))
+
+
+# 69) Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
+#      The maximum time never exceeds 359999 (99:59:59)
+
+s = 359999
+def make_readable(seconds):
+    hr = seconds//3600
+    seconds = seconds % 3600
+    m = seconds//60
+    seconds = seconds % 60
+    return('{:02d}'.format(hr) + ':' + '{:02d}'.format(m) + ':' + '{:02d}'.format(seconds))
+print(make_readable(s))
+
+s = 359999
+def make_readable(seconds):
+    return('{:02}:{:02}:{:02}'.format(seconds // 3600, (seconds // 60) % 60, seconds % 60))
+print(make_readable(s))
+
+s = 359999
+def make_readable(seconds):
+    hours = seconds // 3600
+    m = (seconds % 3600) // 60
+    seconds = seconds % 60
+    return("{:02}:{:02d}:{:02}".format(hours,m,seconds))
+print(make_readable(s))
