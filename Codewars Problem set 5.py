@@ -103,3 +103,15 @@ def make_readable(seconds):
     seconds = seconds % 60
     return("{:02}:{:02d}:{:02}".format(hours,m,seconds))
 print(make_readable(s))
+
+
+# 70) Complete the function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false.
+
+s1 = 'cedewaraaossoqqyt'
+s2 =  'codewars'
+def scramble(s1, s2):
+    for c in set(s2):
+        if s2.count(c) > s1.count(c):
+            return(False)
+    return(True)
+print(scramble(s1, s2))
