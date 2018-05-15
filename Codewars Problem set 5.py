@@ -142,3 +142,23 @@ def move_zeros(array):
             result.insert(0, i)   # otherwise insert i at index 0 to result
     return(result)   # return the list result
 print(move_zeros(array))
+
+
+# 72) Write a function that will find all the anagrams of a word from a list. You will be given two inputs a word and an array with words. You should return an array of all the anagrams or an empty array if there are none.
+#     ex: anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
+
+word = 'abba'
+words = ['aabb', 'abcd', 'bbaa', 'dada']
+def anagrams(word, words):
+    result = []   # initializing result to be an empty list
+    for i in words:   # for i in ['aabb', 'abcd', 'bbaa', 'dada']
+        if sorted(i) == sorted(word):   # if sorted(i)='aabb' == sorted(word) ='aabb', then
+            result.append(i)   # append i to result
+    return(result)   #   return the list result
+print(anagrams(word, words))
+
+word = 'abba'
+words = ['aabb', 'abcd', 'bbaa', 'dada']
+def anagrams(word, words):
+    return([i for i in words if sorted(word) == sorted(i)])
+print(anagrams(word, words))
