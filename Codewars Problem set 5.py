@@ -115,3 +115,30 @@ def scramble(s1, s2):
             return(False)
     return(True)
 print(scramble(s1, s2))
+
+
+# 71) Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+#     ex: move_zeros([False,1,0,1,2,0,1,3,"a"]) # returns[False,1,1,2,1,3,"a",0,0]
+
+array = [False,1,0,1,2,0,1,3,"a"]
+def move_zeros(array):
+  result = []   # initializing result to be an empty list
+  count = 0   # initializing count to be 0
+  for i in array:   # for i in [False,1,0,1,2,0,1,3,"a"]
+    if type(i) in (int, float) and i == 0:   # if type if object i in integer, float, and i = 0, then 
+      count += 1   # increment count by 1
+    else:
+      result.append(i)   # otherwise append i to list result
+  return(result + [0] * count)   # return the list result + count of 0
+print(move_zeros(array))
+
+array = ["a",0,0,"b","c","d",0,1,True,1,0,3,0,1,9,0,0,0,0,9]
+def move_zeros(array):
+    result = []
+    for i in array[::-1]:
+        if type(i) in (int, float) and i == 0:   # if type if object i in integer, float, and i = 0, then 
+            result.append(0)   # append 0 to result
+        else:
+            result.insert(0, i)   # otherwise insert i at index 0 to result
+    return(result)   # return the list result
+print(move_zeros(array))
