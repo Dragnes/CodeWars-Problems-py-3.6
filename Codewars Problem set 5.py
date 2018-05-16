@@ -162,3 +162,26 @@ words = ['aabb', 'abcd', 'bbaa', 'dada']
 def anagrams(word, words):
     return([i for i in words if sorted(word) == sorted(i)])
 print(anagrams(word, words))
+
+
+# 73) You need to write regex that will validate a password to make sure it meets the following criteria:
+#     at least six characters long
+#     contains a lowercase letter
+#     contains an uppercase letter
+#     contains a number
+
+regex="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^\W_]{6,}$"
+
+regex="^(?=.*?\d)(?=.*?[A-Z])(?=.*?[a-z])[A-Za-z\d]{6,}$"
+
+from re import compile, VERBOSE
+
+regex = compile("""
+^              # begin word
+(?=.*?[a-z])   # at least one lowercase letter
+(?=.*?[A-Z])   # at least one uppercase letter
+(?=.*?[0-9])   # at least one number
+[A-Za-z\d]     # only alphanumeric
+{6,}           # at least 6 characters long
+$              # end word
+""", VERBOSE)
