@@ -196,7 +196,7 @@ $              # end word
 recipe = {"flour": 500, "sugar": 200, "eggs": 1}
 available = {"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200}
 def cakes(recipe, available):
-    Max_amount = 999999999999999   # initilizing Max_amount to be a large number
+    Max_amount = 99999   # initilizing Max_amount to be a large number
     for i in recipe:   # for i in {"flour": 500, "sugar": 200, "eggs": 1}, i1 = "flour", i2 = "sugar", i3 = "eggs"
         if i not in available:   # if i not in {"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200}, then
             return (0)   # return 0
@@ -204,6 +204,19 @@ def cakes(recipe, available):
             if Max_amount > available[i]//recipe[i]:   # available[i1] = 1200 and recipe[i] = 500, if Max_amount > 1200//500 is true then,
                 Max_amount = available[i]//recipe[i]   # set Max_amount to be integer division of available[i] to recipe[i] (which is not a large number anymore)
     return (Max_amount)   # return Max_amount
+print(cakes(recipe, available))
+
+recipe = {"flour": 500, "sugar": 200, "eggs": 1}
+available = {"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200}
+def cakes(recipe, available):
+    Max_amount = 99999
+    for i in recipe:
+        if i in available:
+            if Max_amount > available[i] // recipe[i]:
+                Max_amount = available[i] // recipe[i]
+        else:
+            return (0)
+    return (Max_amount)
 print(cakes(recipe, available))
 
 recipe = {"flour": 500, "sugar": 200, "eggs": 1}
