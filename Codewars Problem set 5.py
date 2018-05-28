@@ -249,3 +249,14 @@ def choose_best_sum(t, k, ls):
         return (None)   # return None
     return (dist)   # return dist
 print(choose_best_sum(t, k, ls))
+
+t = 174
+k = 3
+ls = [50, 55, 57, 58, 60]
+from itertools import combinations
+def choose_best_sum(t, k, ls):
+    sums = [sum(c) for c in combinations(ls, k) if sum(c) <= t]
+    if sums:
+        return (max(sums))
+    return(None)
+print(choose_best_sum(t, k, ls))
