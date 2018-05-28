@@ -230,3 +230,22 @@ def cakes(recipe, available):
             list.append(available[i] // recipe[i])   # append integer division of (available[i] to recipe[i]) to the initialized empty list
     return(min(list))   # return the minimum value in list
 print(cakes(recipe, available))
+
+
+# 75) John and Mary want to travel between a few towns A, B, C ... Mary has on a sheet of paper a list of distances between these towns. ls = [50, 55, 57, 58, 60].
+#     John is tired of driving and he says to Mary that he doesn't want to drive more than t = 174 miles and he will visit only 3 towns.
+#     Which distances, hence which towns, they will choose so that the sum of the distances is the biggest possible to please Mary - but less than t - to please John- ?
+
+t = 174
+k = 3
+ls = [50, 55, 57, 58, 60]
+from itertools import combinations
+def choose_best_sum(t, k, ls):
+    dist = 0   # initializing dist to be zero
+    for c in combinations(ls, k):   # combinations(ls, k) = combinations([50, 55, 57, 58, 60], 3). so for c1 in combinations([50, 55, 57, 58, 60], 3) = 50, 55, 57. for c2 in combinations([50, 55, 57, 58, 60], 3) = 50, 55, 58...
+        if sum(c) <= t:   # if sum of c is less than or equal to t, then
+            dist = max(dist, sum(c))   # dist is maximum of dist or sum(c)
+    if dist == 0:   # if dist is zero, then
+        return (None)   # return None
+    return (dist)   # return dist
+print(choose_best_sum(t, k, ls))
