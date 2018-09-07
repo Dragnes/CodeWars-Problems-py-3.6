@@ -114,3 +114,52 @@ def countBits(n):
             count += 1
     return count
 print(countBits(1234))
+
+
+# 81) Tribonacci Sequence: it works basically like a Fibonacci, but summing the last 3 (instead of 2) numbers of the sequence to generate the next
+#     ex: [1,1,1] ---> [1, 1 ,1, 3, 5, 9, 17, 31, up to given n]
+
+n = 10
+signature = [1,1,1]
+def tribonacci(signature, n):
+    tri = []
+    for i in range(n):
+        new_i = signature[-1] + signature[-2] + signature[-3]
+        signature.append(new_i)
+        ele = signature.pop(0)
+        tri.append(ele)
+    return(tri)
+print(tribonacci(signature, n))
+
+n = 10
+signature = [1,1,1]
+def tribonacci(signature, n):
+    tri = signature[:n]
+    while len(tri) < n:
+        tri.append(sum(tri[-3:]))
+    return (tri)
+print(tribonacci(signature, n))
+
+n = 10
+signature = [1,1,1]
+def tribonacci(signature,n):
+    while len(signature) < n:
+        signature.append(sum(signature[-3:]))
+    return (signature[:n])
+print(tribonacci(signature, n))
+
+# 82) The goal of this exercise is to convert a string to a new string where each character in the new string is '(' if that character appears only once in the original string,
+#     or ')' if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+
+word = 'recede'
+def duplicate_encode(word):
+    word = word.upper()
+    result = ""
+    for char in word:
+        if word.count(char) > 1:
+            result += ")"
+        else:
+            result += "("
+            
+    return result
+print(duplicate_encode(word))
